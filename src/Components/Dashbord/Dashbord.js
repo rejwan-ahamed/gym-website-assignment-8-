@@ -3,7 +3,7 @@ import React from "react";
 const Dashbord = () => {
   return (
     <div className="body-right-part">
-      <div className="main-dashboard bg-white w-full h-max p-8">
+      <div className="main-dashboard bg-white w-full h-max p-8 md:w-[20rem] lg:w-[20rem] xl:w-full">
         {/* dash board avatar section */}
         <div className="avatar flex items-center">
           <img
@@ -54,7 +54,7 @@ const Dashbord = () => {
           <h2 className="text-[20px] font-mono font-bold mt-10 mb-4">
             Add break
           </h2>
-          <div className="break-main bg-blue-200 w-full h-auto rounded-md flex justify-between items-center gap-4 px-10 py-3">
+          <div className="break-main bg-blue-200 w-full h-auto rounded-md flex justify-between items-center gap-4 px-10 py-3 md:px-2 lg:px-2 xl:px-10">
             <a href="/" className=" cursor-pointer h-6 w-6 text-center bg-white p-6 rounded-full flex items-center justify-center font-mono font-bold hover:bg-blue-500 hover:text-white"> 20</a>
             <a href="/" className=" cursor-pointer h-6 w-6 text-center bg-white p-6 rounded-full flex items-center justify-center font-mono font-bold hover:bg-blue-500 hover:text-white"> 30</a>
             <a href="/" className=" cursor-pointer h-6 w-6 text-center bg-white p-6 rounded-full flex items-center justify-center font-mono font-bold hover:bg-blue-500 hover:text-white"> 40</a>
@@ -70,11 +70,11 @@ const Dashbord = () => {
 
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Exercise time</h1>
-            <h2 className="font-mono text-xl font-bold text-gray-600">200 second</h2>
+            <h2 className="font-mono text-xl font-bold text-gray-600">200s</h2>
           </div>
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Break time</h1>
-            <h2 className="font-mono text-xl font-bold text-gray-600">200 second</h2>
+            <h2 className="font-mono text-xl font-bold text-gray-600">200s</h2>
           </div>
         </div>
 
