@@ -2,22 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { getData, saveData } from "../../Utilities/SaveData";
 
 // tostify import packages
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashbord = (props) => {
-  // console.log(props.time);
-  let time = 0;
-  let oldTime = props.time
-  let newTime = time + oldTime
-  time = newTime;
-
-
-
   // exercise buttons control part here
   const ref = useRef(null);
 
-  // clicked button 
+  // clicked button
 
   let clickedButton;
 
@@ -25,21 +17,28 @@ const Dashbord = (props) => {
     const el = document.getElementById("break-buttons");
     el.addEventListener("click", function (event) {
       clickedButton = event.target.innerText;
-      setClicked(clickedButton)
-      saveData(clickedButton)
+      setClicked(clickedButton);
+      saveData(clickedButton);
     });
   }, []);
 
-  const [clicked,setClicked] = useState([])
+  const [clicked, setClicked] = useState([]);
   // exercise buttons control end here
 
   // load data from local storage
-  useEffect(()=>{
-    let localyStoredData = getData()
-    setClicked(localyStoredData)
-  })
-  
+  useEffect(() => {
+    let localyStoredData = getData();
+    setClicked(localyStoredData);
+  });
+
   const notify = () => toast("Activity Completed 🥳");
+
+  // total time count start here
+  let totlaTime = 0;
+  for (const time of props.time) {
+    const newToatlTime = totlaTime + time.time;
+    totlaTime = newToatlTime;
+  }
 
   return (
     <div className="body-right-part">
@@ -60,10 +59,10 @@ const Dashbord = (props) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
-                  fill-rule="evenodd"
+                fillRule="evenodd"
                   d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
                   clip-rule="evenodd"
                 />
@@ -126,13 +125,13 @@ const Dashbord = (props) => {
 
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Exercise time</h1>
-            <h2 className="font-mono text-xl font-bold text-gray-600">
-              {newTime}s
-            </h2>
+            <h2 className="font-mono text-xl font-bold text-gray-600">{totlaTime}s</h2>
           </div>
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Break time</h1>
-            <h2 className="font-mono text-xl font-bold text-gray-600">{clicked}s</h2>
+            <h2 className="font-mono text-xl font-bold text-gray-600">
+              {clicked}s
+            </h2>
           </div>
         </div>
 

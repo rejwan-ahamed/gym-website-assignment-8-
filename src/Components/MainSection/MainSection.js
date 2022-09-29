@@ -14,12 +14,10 @@ const MainSection = () => {
 
   const [addTime, SetTime] = useState([]);
 
-  let Time = 0;
   //   click event handler
   const clickHandler = (data) => {
-     SetTime(data.time);
-     Time =addTime + Time;
-     console.log(Time)
+    const newTime = [...addTime, data]
+    SetTime(newTime)
   };
 
   return (
