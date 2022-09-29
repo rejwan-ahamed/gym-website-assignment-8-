@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { getData, saveData } from "../../Utilities/SaveData";
 
+// tostify import packages
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Dashbord = (props) => {
   // console.log(props.time);
   let time = 0;
@@ -35,6 +39,7 @@ const Dashbord = (props) => {
     setClicked(localyStoredData)
   })
   
+  const notify = () => toast("Activity Completed 🥳");
 
   return (
     <div className="body-right-part">
@@ -134,10 +139,13 @@ const Dashbord = (props) => {
         {/* activity button */}
         <button
           className="cursor-pointer bg-blue-500 text-white w-full p-4 text-center rounded-md font-mono font-bold text-xl border hover:border-blue-500 hover:text-blue-500 hover:bg-transparent"
-          id="activity-button"
+          onClick={notify}
         >
           Activity Completed
         </button>
+
+        {/* toast container */}
+        <ToastContainer />
       </div>
     </div>
   );
