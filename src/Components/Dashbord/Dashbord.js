@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { getData, saveData } from "../../Utilities/SaveData";
 
 const Dashbord = (props) => {
-  console.log(props.time);
+  // console.log(props.time);
   let time = 0;
-  let newTime = time + props.time;
+  let oldTime = props.time
+  let newTime = time + oldTime
   time = newTime;
 
 
@@ -20,12 +22,19 @@ const Dashbord = (props) => {
     el.addEventListener("click", function (event) {
       clickedButton = event.target.innerText;
       setClicked(clickedButton)
+      saveData(clickedButton)
     });
   }, []);
 
   const [clicked,setClicked] = useState([])
-
   // exercise buttons control end here
+
+  // load data from local storage
+  useEffect(()=>{
+    let localyStoredData = getData()
+    setClicked(localyStoredData)
+  })
+  
 
   return (
     <div className="body-right-part">
