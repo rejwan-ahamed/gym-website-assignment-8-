@@ -5,12 +5,18 @@ const Cards = () => {
   const [activity, setActivity] = useState([]);
   useEffect(() => {
     fetch("DB.json")
-    .then(res=>res.json())
-    .then(data=>setActivity(data))
+      .then((res) => res.json())
+      .then((data) => setActivity(data));
   }, []);
 
-console.log(activity)
-
+  // button click handler
+  let Time = 0;
+  const clickHandler = (data) => {
+    const { time } = data;
+    const newTime = time + Time;
+    Time = newTime;
+    console.log(Time)
+  };
   return (
     <div className="body-left-part col-span-3 px-8 mb-12 md:col-span-2 md:px-8 lg:col-span-3 lg:px-10 xl:px-28">
       {/* website title part here */}
@@ -38,9 +44,13 @@ console.log(activity)
       <div className="cards-main flex justify-center flex-col items-center md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* cards bodies */}
 
-       {
-        activity.map(data=><Card key={data.id} activity={data}></Card>)
-       }
+        {activity.map((data) => (
+          <Card
+            key={data.id}
+            activity={data}
+            handler={() => clickHandler(data)}
+          ></Card>
+        ))}
       </div>
     </div>
   );

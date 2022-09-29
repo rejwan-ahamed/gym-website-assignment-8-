@@ -23,12 +23,11 @@ const Card = (props) => {
           Time: {time}s
           </h5>
         </a>
-        <a
-          href="/"
+        <button
           className="cursor-pointer w-full inline-flex items-center justify-center py-3 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-        >
+        onClick={()=>props.handler(props.activity)}>
           Add to list
-        </a>
+        </button>
       </div>
     </div>
   );
