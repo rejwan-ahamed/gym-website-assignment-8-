@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { clickHandler } from "../../Utilities/ClickHnadler";
 import Card from "../Card/Card";
 
 const Cards = () => {
@@ -10,13 +11,6 @@ const Cards = () => {
   }, []);
 
   // button click handler
-  let Time = 0;
-  const clickHandler = (data) => {
-    const { time } = data;
-    const newTime = time + Time;
-    Time = newTime;
-    console.log(Time)
-  };
   return (
     <div className="body-left-part col-span-3 px-8 mb-12 md:col-span-2 md:px-8 lg:col-span-3 lg:px-10 xl:px-28">
       {/* website title part here */}
