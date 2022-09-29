@@ -1,10 +1,18 @@
-import './App.css';
-
+import "./App.css";
+import Cards from "./Components/Cards/Cards";
+import Dashbord from "./Components/Dashbord/Dashbord";
 
 function App() {
   return (
     <div className="App">
-   
+      <main>
+        <section className="main-body-section">
+          <div className="upper-body-section grid grid-cols-4">
+            <Cards></Cards>
+            <Dashbord className="relative"></Dashbord>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
