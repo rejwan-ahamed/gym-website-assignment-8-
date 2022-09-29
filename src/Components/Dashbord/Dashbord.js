@@ -1,4 +1,11 @@
-const Dashbord = () => {
+const Dashbord = (props) => {
+  console.log(props.time)
+  let time = 0;
+  let newTime = time + props.time
+  time = newTime;
+   
+
+ 
   return (
     <div className="body-right-part">
       <div className="main-dashboard bg-white w-full h-max p-8 md:w-[20rem] lg:w-[20rem] xl:w-full">
@@ -68,7 +75,7 @@ const Dashbord = () => {
 
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Exercise time</h1>
-            <h2 className="font-mono text-xl font-bold text-gray-600">200s</h2>
+            <h2 className="font-mono text-xl font-bold text-gray-600">{newTime}s</h2>
           </div>
           <div className="ex-time bg-blue-200 w-full h-auto rounded-md flex p-5 justify-between mb-4">
             <h1 className="font-mono text-xl font-bold">Break time</h1>
