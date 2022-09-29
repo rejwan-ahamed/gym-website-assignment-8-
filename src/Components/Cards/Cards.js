@@ -12,7 +12,7 @@ const Cards = () => {
 console.log(activity)
 
   return (
-    <div className="body-left-part col-span-3 px-28 mb-12 md:col-span-2 md:px-8 lg:col-span-3 lg:px-10 xl:px-28">
+    <div className="body-left-part col-span-3 px-8 mb-12 md:col-span-2 md:px-8 lg:col-span-3 lg:px-10 xl:px-28">
       {/* website title part here */}
       <div className="title flex items-center text-blue-600 mb-12 mt-12">
         <svg
@@ -35,7 +35,7 @@ console.log(activity)
 
       {/* main card section */}
 
-      <div className="cards-main grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="cards-main flex justify-center flex-col items-center md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* cards bodies */}
 
        {
